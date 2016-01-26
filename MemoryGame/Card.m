@@ -7,8 +7,10 @@
 //
 
 #import "Card.h"
+#import "ViewController.h"
 
 @interface Card () <UIGestureRecognizerDelegate>
+
 @property UITapGestureRecognizer *tgr;
 
 @end
@@ -22,20 +24,19 @@
         NSString *imageName = [NSString stringWithFormat:@"%@%@",value,suit];
         self.tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
         self.userInteractionEnabled = YES;
-//        self.userInteractionEnabled
+
         [self addGestureRecognizer:self.tgr];
-        //self.tgr.delegate = self;
         
         self.cardImage = [UIImage imageNamed:imageName];
         self.value = value;
         self.suit = suit;
         self.suitValue = [NSArray arrayWithObjects:value, suit, nil];
     }
+    
     return self;
 }
 
 -(void)handleTap:(UITapGestureRecognizer *) gestureRecognizer {
-    NSLog(@"Tapped");
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
         [self.delegate hideSubView:self];
         

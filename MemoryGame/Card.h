@@ -25,4 +25,5 @@
 @property (nonatomic, assign) id <CardDelegate> delegate;
 
 -(instancetype)initWithSuit:(NSString *)suit withValue:(NSString *)value;
+
 @end
